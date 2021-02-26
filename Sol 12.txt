@@ -1,0 +1,11 @@
+file = input("Give file name or file directory:")
+asc_char = open(file,"r")
+file = asc_char.read()
+asc_char.close()
+newf = ""
+for i in file:
+    mirror = 128 - ord(i)
+    mirror = chr(mirror)
+    newf += mirror
+print (newf)
+print (newf[-1::-1])

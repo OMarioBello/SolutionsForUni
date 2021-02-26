@@ -1,0 +1,50 @@
+import tweepy
+
+def listToString(list):
+    str1 = " "
+    return (str1.join(list))
+
+consumer_key= input("ConKey:")
+consumer_secret = input("ConSec:")
+access_token = input("AccsToken:")
+access_token_secret = input("AccsTokenSec:")
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth)
+user = input("Give twitter @ handle:")
+screen_name = user
+
+count = 10
+
+tx= []
+  
+statuses = api.user_timeline(screen_name, count = count) 
+
+for status in statuses:
+    tx.append(status.text)
+    
+    #print(status.text)
+          #end = "\n"
+#print (tx)
+#print (max(tx))
+#for i in tx:
+fmax = []
+fmin = []
+
+txx = listToString(tx)
+txx = txx.casefold()
+tx = txx.split()
+print (tx)
+for i in range(5):
+   print (max(tx,key=len))
+   print (min(tx,key=len))
+   fmax.append(max(tx,key=len))
+   fmin.append(min(tx,key=len))
+   tx.remove(max(tx,key=len))
+   tx.remove(min(tx,key=len))
+#print (tx)
+print (fmax)
+print (fmin)
+
+ 

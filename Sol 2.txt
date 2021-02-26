@@ -1,0 +1,28 @@
+import random
+
+def fib(n):
+ j = 0
+ k = 1
+ for i in range (2,n):
+    l = j + k
+    j = k
+    k = l
+ return (j + k)
+z=0
+while z <= 0:
+ z = input("Dwse oro fibonacci:")
+ z = int(z)
+ print ("Edwses:",z)
+p=fib(z)
+print ("O",z,"os oros einai o",p)
+for t in range(20):
+ a=0
+ a = random.randint(1,100)
+ print (a)
+ print ((a ** p) % p != a % p)
+ if (a ** p) % p != a % p:
+     break
+if t == 19:
+   print("Einai prwtos")
+else:
+    print("Den einai prwtos")

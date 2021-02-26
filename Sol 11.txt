@@ -1,0 +1,37 @@
+import json 
+dictiofile = input("Type in the file or file directory:")
+thisdict = json.load(open(dictiofile))
+print (thisdict)
+print (type(thisdict))
+global key 
+key = []
+def nestkey(dictio):
+    if type(dictio) == list or type(dictio) == dict:
+        for i in dictio.keys():
+           c = dictio.get(i)
+           key.append(i)
+           #print (i)
+           if type(c) == dict:
+               nestkey(c)
+           elif type(c) == list:
+               for t in c:
+                   nestkey(t)
+    return key
+def most_frequent(List): 
+    counter = 0
+    num = List[0] 
+    for i in List: 
+        curr_frequency = List.count(i) 
+        if(curr_frequency> counter): 
+            counter = curr_frequency 
+            num = i 
+  
+    return num 
+  
+print (nestkey(thisdict))
+print (most_frequent(key),"is the most frequent key")
+
+
+
+
+
